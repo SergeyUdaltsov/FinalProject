@@ -1,0 +1,251 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html, body{
+    height: 100%;
+}
+
+header{
+    border-bottom:1px solid #4561a9;
+    margin: 0 10%;
+    max-width: 100%;
+    min-width: 10%;
+    overflow: hidden;
+
+}
+
+body{
+    background: #cfe7fa; /* Old browsers */
+    background: -webkit-linear-gradient(#cfe7fa 0%, #6393c1 100%);
+    background: -o-linear-gradient(#cfe7fa 0%, #6393c1 100%);
+    background: linear-gradient(#cfe7fa 0%, #6393c1 100%); /* FF3.6-15 */ /* Chrome10-25,Safari5.1-6 */ /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background-attachment: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+
+a, p, h4{
+    color: #4561a9;
+    font-family: Luside Console;
+    text-decoration: none;
+}
+
+p, h4{
+    font-style: italic;
+}
+
+/*Начало log_in страница*/
+.log_in{
+    font-family: MS Sans Serif;
+    font-size: 18px;
+    padding-top: 10%;
+    padding-left: 42%;
+    position: absolute;
+    text-align: left;
+}
+
+h3{
+    color: #555555;
+    margin-bottom: 10px;
+}
+
+.registration{
+    margin: 10px 130px;
+}
+
+button {
+    border: 1px solid #4561a9;
+    border-radius: 5px;
+    font-size: 85%;
+    padding: 1px;
+}
+/*Конец log_in страница*/
+
+/*Начало createAdv*/
+.createAdv{
+    color: #555555;
+    font-family: MS Sans Serif;
+    font-size: 18px;
+    margin-top: 5%;
+    margin-left: 35%;
+    padding: 20px;
+    position: absolute;
+    text-align: left;
+}
+
+#rubricName{
+    height: 25px;
+    width: 253px;
+}
+
+#titleName{
+    height: auto;
+    width: 250px;
+}
+
+#text{
+    height: auto;
+    width: 250px;
+}
+
+#price{
+    height: 18px;
+    width: 250px;
+}
+
+.back{
+
+}
+/*Конец createAdv*/
+
+/*Начало RegistrationForm*/
+.RegistrationForm{
+    color: #555555;
+    font-family: MS Sans Serif;
+    font-size: 18px;
+    margin-top: 2%;
+    margin-left: 40%;
+    padding: 20px;
+    position: absolute;
+    text-align: left;
+}
+
+textarea {
+    resize: none;
+}
+
+#em{
+    color: red;
+}
+
+.Address{
+    font-weight: bold;
+}
+/*Конец RegistrationForm*/
+
+/*Начало CreateRubric*/
+.rubricName{
+    color: #555555;
+    font-family: MS Sans Serif;
+    font-size: 18px;
+    margin-top: 2%;
+    margin-left: 35%;
+    padding: 20px;
+    position: absolute;
+    text-align: left;
+}
+/*Конец CreateRubric*/
+
+/*Начало ShowAdvertisement*/
+table{
+    margin: 2% 10%;
+    font-family: MS Sans Serif;
+
+}
+td{
+    padding: 5px;
+
+}
+#home{
+    float: right;
+    font-size: 15px;
+    margin-right: 20%;
+    padding: 4px;
+}
+.ShowAdvHeading{
+    font-size: 18px;
+    font-style: italic;
+}
+/*Конец ShowAdvertisement*/
+
+/*Начало Site*/
+
+.smartSearching{
+    margin-left: 10px;
+}
+
+.Site{
+    margin:10px 450px;
+    float: right;
+    line-height: 1.5;
+}
+#siteAdv{
+    color: #3557ad;
+    font-family: Luside Console;
+    font-size: 20px;
+    font-style: normal;
+}
+.filter{
+    margin: 1% 10%;
+    font-size: 18px;
+    position: absolute;
+}
+#greeting{
+    color: black;
+    font-family: Luside Console;
+    font-size: 20px;
+    font-style: normal;
+
+}
+#createAdv{
+    margin-bottom: 20px;
+}
+
+#from{
+    margin-left: 10px;
+    width: 80px;
+}
+#to{
+    margin-left: 10px;
+    width: 80px;
+}
+#filter{
+    margin-left: 10px;
+    margin-bottom: 15px;
+}
+#show{
+
+    margin: 10px 40px;
+}
+.logOut{
+    margin: 10px 1200px;
+    position: absolute;
+    width: 80px;
+}
+.authorAdv{
+    margin: 10px 1300px;
+    position: absolute;
+    width: 120px;
+}
+.logIn{
+    margin: 35px 1200px;
+    position: absolute;
+    width: 80px;
+
+}
+
+.paging{
+    margin-top: 40px;
+    text-align: center;
+}
+/*Конец site*/
+
+footer{
+    position: fixed;
+    left: 0; bottom: 0;
+    padding: 10px;
+    background: #B0C4DE;
+    width: 100%;
+}
+
+.copiright{
+    text-align: center;
+    color: #696969;
+
+}
+
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Site</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/Site.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<header>
+    <img class="logo" src="img/logo1.png" alt="logo">
+</header>
+
+<body>
+<div class="Site">
+    <p id="greeting"></p>
+    <p id="siteAdv"></p>
+    <div class="paging">
+        <a id="firstPage" href='http://localhost:9999/Site.html?id=1'>&laquo;</a>
+    </div>
+
+</div>
+
+
+<div class="filter">
+    <p><button id="createAdv">Create advertisement</button></p>
+    <p class="SmartSearching">Rubric</p>
+    <p><select id="filter" size="1"></select></p>
+    <p>Price</p>
+    <p><input id="from" type="number" placeholder="from"/></p>
+    <p><input id="to" type="number" placeholder="to"/></p>
+    <p><button id="show">Find by filter</button></p>
+</div>
+
+    <p class="logOut"><button id="logOut">Log Out</button></p>
+    <button class="authorAdv" id="myAdv">My advertisements</button>
+    <p class="logIn"><button id="logIn">Log In</button></p>
+
+</body>
+<footer>
+    <p class="copiright"> &#169; Copyright Sergey Udaltsov  email: sergii.udaltsov@gmail.com, skype: afranij31</p>
+</footer>
+
+</html>
