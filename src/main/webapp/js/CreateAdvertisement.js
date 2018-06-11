@@ -6,17 +6,7 @@ $(document).ready(function () {
 
     var authorFromStorage = JSON.parse(localStorage.getItem('author'));
 
-    var select = $("#rubricName");
-
-    $.getJSON('http://localhost:9999/agency/rubric/get/all', function (result) {
-
-        $.each(result, function () {
-
-            var opt = $("<option value='" + this.id + "'></option>").text(this.name);
-            select.append(opt);
-        });
-    });
-
+    loadRurics();
 
     $("#createNewRubric").click(function () {
         $(location).attr('href', 'http://localhost:9999/CreateRubric.html');
@@ -30,10 +20,9 @@ $(document).ready(function () {
         newAdv.title = $("#titleName").val();
         newAdv.text = $("#text").val();
         newAdv.price = $("#price").val();
+        newAdv.closed = false;
 
-        console.log(newAdv);
-
-        saveAdv();
+        saveAdv(newAdv);
         $(location).attr('href', 'http://localhost:9999/Site.html?id=1');
 
     });
@@ -45,7 +34,20 @@ $(document).ready(function () {
     });
 });
 
-function saveAdv() {
+function loadRurics() {
+    var select = $("#rubricName");
+
+    $.getJSON('http://localhost:9999/agency/rubric/get/all', function (result) {
+
+        $.each(result, function () {
+
+            var opt = $("<option value='" + this.id + "'></option>").text(this.name);
+            select.append(opt);
+        });
+    });
+}
+
+function saveAdv(advertisement) {
 
     fetch('http://localhost:9999/agency/advertisement/save', {
         headers: {
@@ -53,7 +55,7 @@ function saveAdv() {
             'Content-Type': 'application/json'
         },
         method: 'POST',
-        body: JSON.stringify(newAdv)
+        body: JSON.stringify(advertisement)
     })
         .then(function (res) {
             if (res.success) {

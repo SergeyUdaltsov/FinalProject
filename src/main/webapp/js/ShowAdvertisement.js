@@ -1,35 +1,53 @@
+var advertisement = null;
+
 $(window).ready(function () {
 
-    var id = window.location.href.split("?")[1].split("=")[1].split("&")[0];
+    var advertisementId = window.location.href.split("?")[1].split("=")[1].split("&")[0];
 
-    var myAdv = window.location.href.split("&")[1];
+    var checkIfSpecific = window.location.href.split("&")[1];
 
-    alert(myAdv);
-
-    if(myAdv === "true") {
-        $("#home").append('<button id="edit">Edit</button>');
+    if (checkIfSpecific === "common") {
+        $("#editAdvertisement").hide();
     }
 
 
-    var request = 'http://localhost:9999/agency/advertisement/get/' + id;
-    $.getJSON(request, function (res) {
+    var url = 'http://localhost:9999/agency/advertisement/get/' + advertisementId;
+
+    showAdvertisementInfo(url);
+
+
+    $("#home").click(function () {
+        window.history.back();
+    });
+
+    $("#editAdvertisement").click(function () {
+        localStorage.setItem('advertisementToEdit', JSON.stringify(advertisement));
+
+        $(location).attr('href', 'http://localhost:9999/EditAdvertisement.html');
+
+    });
+
+
+});
+
+function showAdvertisementInfo(url) {
+    $.getJSON(url, function (res) {
+
+        advertisement = res;
 
         $("#title").append(res.title);
         $("#text").append(res.text);
         $("#price").append(res.price);
         $("#citiesList").append(res.authorCity);
 
-        if (res.closed) {
-            $("#closed").append('Advertisement marked as closed and will be deleted');
-        }
-
+       if(res.closed !== true){$("#closed").hide();}
 
 
         var date = res.date.dayOfMonth + '-' + res.date.monthValue + '-' + res.date.year;
         $("#date").append(date);
 
         var phones = res.authorPhones;
-        for(var i = 0; i < phones.length; i++) {
+        for (var i = 0; i < phones.length; i++) {
             var phone = '<p>' + phones[i].number + '</p>';
             $("#phones").append(phone);
         }
@@ -38,10 +56,4 @@ $(window).ready(function () {
         $("#seller").append(seller);
 
     });
-
-    $("#home").click(function () {
-        window.history.back();
-    })
-
-
-});
+}

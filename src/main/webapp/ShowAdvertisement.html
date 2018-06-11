@@ -1,59 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Advertisement</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="js/ShowAdvertisement.js"></script>
-	<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Advertisement</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <header>
-	<img class="logo" src="img/logo1.png" alt="logo">
+    <img class="logo" src="img/logo1.png" alt="logo">
 </header>
 
 <body>
 <table>
-	<tbody>
-	<tr>
-		<td class="ShowAdvHeading"></td>
-		<td id="closed"></td>
-	</tr>
-	<tr>
-		<td class="ShowAdvHeading">Title</td>
-		<td id="title"></td>
-	</tr>
-	<tr>
-		<td class="ShowAdvHeading">Text</td>
-		<td id="text"></td>
-	</tr>
-	<tr>
-		<td class="ShowAdvHeading">Price</td>
-		<td id="price"></td>
-	</tr>
-	<tr>
-		<td class="ShowAdvHeading">Location</td>
-		<td id="citiesList"></td>
-	</tr>
-	<tr>
-		<td class="ShowAdvHeading">Publication date</td>
-		<td id="date"></td>
-	</tr>
-	<tr>
-		<td class="ShowAdvHeading">Contacts</td>
-		<td id="phones"></td>
-	</tr>
+    <tbody>
+    <tr>
+        <td class="ShowAdvHeading"></td>
+        <td id="closed">Advertisement marked as closed and will be deleted</td>
+    </tr>
+    <tr>
+        <td class="ShowAdvHeading">Title</td>
+        <td id="title"></td>
+    </tr>
+    <tr>
+        <td class="ShowAdvHeading">Text</td>
+        <td id="text"></td>
+    </tr>
+    <tr>
+        <td class="ShowAdvHeading">Price</td>
+        <td id="price"></td>
+    </tr>
+    <tr>
+        <td class="ShowAdvHeading">Location</td>
+        <td id="citiesList"></td>
+    </tr>
+    <tr>
+        <td class="ShowAdvHeading">Publication date</td>
+        <td id="date"></td>
+    </tr>
+    <tr>
+        <td class="ShowAdvHeading">Contacts</td>
+        <td id="phones"></td>
+    </tr>
 
-	<tr>
-		<td></td>
-		<td id="seller"></td>
-	</tr>
-	</tbody>
+    <tr>
+        <td></td>
+        <td id="seller"></td>
+    </tr>
+    </tbody>
 </table>
-<p><button id="home">Back</button></p>
+<div class="advButtons">
+    <button id="editAdvertisement">Edit advertisement</button>.
+    <button id="home">Back</button>
+</div>
+
+<script src="js/ShowAdvertisement.js"></script>
 </body>
 <footer>
-	<p class="copiright"> &#169; Copyright Sergey Udaltsov  email: sergii.udaltsov@gmail.com, skype: afranij31</p>
+    <p class="copiright"> &#169; Copyright Sergey Udaltsov  email: sergii.udaltsov@gmail.com, skype: afranij31</p>
 </footer>
 </html>

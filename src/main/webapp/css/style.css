@@ -150,12 +150,17 @@ td{
     padding: 5px;
 
 }
-#home{
-    float: right;
-    font-size: 15px;
-    margin-right: 20%;
-    padding: 4px;
+.advButtons{
+    margin-left: 10%;
 }
+
+#home{
+    width: 100px;
+}
+#editAdvertisement{
+    width: 150px;
+}
+
 .ShowAdvHeading{
     font-size: 18px;
     font-style: italic;

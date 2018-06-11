@@ -1,6 +1,9 @@
 package com.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.serializer.AdvertisementDeserializer;
 import com.serializer.AdvertisementSerializer;
 
 import javax.persistence.*;
@@ -19,6 +22,7 @@ public class Advertisement {
 
     private String text;
 
+//    @JsonDeserialize(using = AdvertisementDeserializer.class)
     private LocalDate date;
 
     private double price;

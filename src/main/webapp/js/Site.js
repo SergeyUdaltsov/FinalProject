@@ -84,7 +84,7 @@ function showPageAdvertisements(pageNumber, countOfAdv) {
     $.getJSON(request, function (list) {
         $.each(list, function () {
 
-            var advTitle = '<p><a href="http://localhost:9999/ShowAdvertisement.html?id=' + this.id + '">' +
+            var advTitle = '<p><a href="http://localhost:9999/ShowAdvertisement.html?id=' + this.id + '&common">' +
                 this.title + '</a></p>';
 
             $("#siteAdv").append(advTitle);

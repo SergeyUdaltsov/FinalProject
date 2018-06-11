@@ -8,10 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.*;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 import java.util.function.Consumer;
 
 @RestController
@@ -39,7 +37,7 @@ public class AuthorController {
     }
 
     @PostMapping(value = "/validate")
-    public ResponseEntity<Author> validateAuthor(@RequestBody Wrapper authorLoginWrapper) {
+    public ResponseEntity<Author> validateAuthor(@RequestBody ValidateWrapper authorLoginWrapper) {
 
         Optional<Author> author = Optional.ofNullable(authorRepository.findByEmail(authorLoginWrapper.getEmail()));
 

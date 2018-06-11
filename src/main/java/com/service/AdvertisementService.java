@@ -1,26 +1,21 @@
 package com.service;
 
-import com.controller.Wrapper;
 import com.domain.Advertisement;
-import com.domain.Author;
 import com.domain.Rubric;
 import com.repository.AdvertisementRepository;
-import com.repository.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.awt.print.Pageable;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Set;
 
 @Service
 @Transactional
 public class AdvertisementService {
 
+    public static final int SIZE = 5;
     @Autowired
     private AdvertisementRepository advertisementRepository;
 
@@ -30,7 +25,10 @@ public class AdvertisementService {
 
 
     public void save(Advertisement advertisement) {
-        advertisement.setDate(LocalDate.now());
+
+        if (advertisement.getDate() == null) {
+            advertisement.setDate(LocalDate.now());
+        }
         advertisementRepository.save(advertisement);
     }
 
@@ -47,7 +45,7 @@ public class AdvertisementService {
 
     public List<Advertisement> getAdvByAuthorId(int authorId, int page) {
 
-        PageRequest pageRequest = PageRequest.of(page, 5);
+        PageRequest pageRequest = PageRequest.of(page, SIZE);
 
         return advertisementRepository.findAllByAuthorId(authorId, pageRequest);
     }

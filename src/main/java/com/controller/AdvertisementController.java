@@ -1,11 +1,14 @@
 package com.controller;
 
 import com.domain.Advertisement;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.repository.AdvertisementRepository;
 import com.service.AdvertisementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -20,6 +23,29 @@ public class AdvertisementController {
 
     @PostMapping(value = "/save")
     public void save(@RequestBody Advertisement advertisement) {
+
+        if (advertisement.getDate() == null) {
+            advertisement.setDate(LocalDate.now());
+        }
+        advertisementService.save(advertisement);
+    }
+
+    @PostMapping(value = "/edit")
+    public void edit(@RequestBody AdvWrapper wrapper) {
+
+        Advertisement advertisement = new Advertisement();
+
+        advertisement.setId(wrapper.getId());
+        advertisement.setTitle(wrapper.getTitle());
+        advertisement.setText(wrapper.getText());
+        advertisement.setPrice(wrapper.getPrice());
+        advertisement.setClosed(wrapper.isClosed());
+        advertisement.setRubric(wrapper.getRubric());
+        advertisement.setAuthor(wrapper.getAuthor());
+
+        LocalDate date = LocalDate.parse(wrapper.getDate());
+        advertisement.setDate(date);
+
         advertisementService.save(advertisement);
     }
 

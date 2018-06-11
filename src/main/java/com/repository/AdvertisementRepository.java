@@ -17,6 +17,8 @@ public interface AdvertisementRepository extends JpaRepository<Advertisement, In
     @Query("SELECT a FROM Advertisement a WHERE a.id = :a_id")
     Advertisement getAdvertisementById(@Param("a_id") int id);
 
+
+
     @EntityGraph(attributePaths = {"author", "rubric"})
     Advertisement findById(int id);
 

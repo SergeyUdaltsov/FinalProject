@@ -11,6 +11,9 @@ $(window).ready(function () {
 
     buildPagination(authorId);
 
+    $("#home").click(function () {
+        $(location).attr('href', 'http://localhost:9999/Site.html?id=1');
+    })
 
 });
 
@@ -43,7 +46,7 @@ function showPageAdvertisements(pageNumber, authorId) {
     $.getJSON(request, function (list) {
         $.each(list, function () {
 
-            var advTitle = '<p><a href="http://localhost:9999/ShowAdvertisement.html?id=' + this.id + '&true">' +
+            var advTitle = '<p><a href="http://localhost:9999/ShowAdvertisement.html?id=' + this.id + '&specific">' +
                 this.title + '</a></p>';
 
             $("#siteAdv").append(advTitle);
