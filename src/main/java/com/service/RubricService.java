@@ -26,4 +26,8 @@ public class RubricService {
         return repository.findAll();
     }
 
+    public Rubric getByName(String name) {
+        return repository.findByName(name);
+    }
+
 }

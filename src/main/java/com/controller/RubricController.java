@@ -7,9 +7,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Validation;
+import javax.validation.Validator;
+import javax.validation.ValidatorFactory;
+
 import java.util.List;
-import java.util.Objects;
-import java.util.Set;
 
 @RestController
 @RequestMapping(value = "rubric")
@@ -18,9 +20,23 @@ public class RubricController {
     @Autowired
     private RubricService service;
 
-    @PostMapping(value = "/save", consumes = "application/json")
-    public void save(@RequestBody Rubric rubric) {
-        service.save(rubric);
+    ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+    Validator validator = factory.getValidator();
+
+
+    @PostMapping(value = "/save")
+    public ResponseEntity<Rubric> save(@RequestBody Rubric rubric) {
+
+        int countOfMistakes = validator.validate(rubric).size();
+
+        ResponseEntity<Rubric> response = new ResponseEntity<Rubric>(rubric, HttpStatus.NOT_FOUND);
+
+        if (countOfMistakes == 0) {
+            service.save(rubric);
+            response = new ResponseEntity<Rubric>(rubric, HttpStatus.OK);
+        }
+
+        return response;
     }
 
     @GetMapping(value = "/get/{id}")

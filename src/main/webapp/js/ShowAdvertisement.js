@@ -43,8 +43,7 @@ function showAdvertisementInfo(url) {
        if(res.closed !== true){$("#closed").hide();}
 
 
-        var date = res.date.dayOfMonth + '-' + res.date.monthValue + '-' + res.date.year;
-        $("#date").append(date);
+        $("#date").append(res.date);
 
         var phones = res.authorPhones;
         for (var i = 0; i < phones.length; i++) {

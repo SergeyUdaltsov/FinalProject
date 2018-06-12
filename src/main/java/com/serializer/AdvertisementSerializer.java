@@ -39,7 +39,7 @@ public class AdvertisementSerializer extends StdSerializer<Advertisement> {
         gen.writeObjectField("id", advertisement.getId());
         gen.writeStringField("title", advertisement.getTitle());
         gen.writeStringField("text", advertisement.getText());
-        gen.writeObjectField("date", advertisement.getDate());
+        gen.writeObjectField("date", advertisement.getDate().toString());
         gen.writeObjectField("price", advertisement.getPrice());
         gen.writeObjectField("closed", advertisement.isClosed());
 

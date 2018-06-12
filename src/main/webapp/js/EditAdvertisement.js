@@ -4,36 +4,26 @@ var rubric = new Object();
 
 $(window).ready(function () {
 
-    var advertisement = JSON.parse(localStorage.getItem('advertisementToEdit'));
+    var advertisementFromStorage = JSON.parse(localStorage.getItem('advertisementToEdit'));
 
-    fillAdvFields(advertisement);
+    fillAdvFields(advertisementFromStorage);
 
     $("#save").click(function () {
 
-
-        advToSaveDB.id = advertisement.id;
-        advToSaveDB.title = $("#title").val();
-        advToSaveDB.text = $("#text").val();
-        advToSaveDB.price = $("#price").val();
+        advToSaveDB.id = advertisementFromStorage.id;
+        advToSaveDB.title = $("#advTitle").val();
+        advToSaveDB.text = $("#advText").val();
+        advToSaveDB.price = $("#advPrice").val();
         rubric.id = $(".select").val();
-        author.id = advertisement.authorId;
+        author.id = advertisementFromStorage.authorId;
         advToSaveDB.author = author;
         advToSaveDB.rubric = rubric;
 
-        var check = document.getElementById('myCheck');
+        var checkClosed = document.getElementById('myCheck');
 
-        if (check.checked === true) {
-            advToSaveDB.closed = true;
-        }
-        var month = ((advertisement.date).monthValue < 10) ? '0' + (advertisement.date).monthValue :
-            (advertisement.date).monthValue;
+        checkClosed.checked ? advToSaveDB.closed = true : advToSaveDB.closed = false;
 
-        var day = ((advertisement.date).dayOfMonth < 10) ? '0' + (advertisement.date).dayOfMonth :
-            (advertisement.date).dayOfMonth;
-
-        var date = (advertisement.date).year+ '-' + month + '-' + day;
-
-        advToSaveDB.date = date;
+        advToSaveDB.date = advertisementFromStorage.date;
 
         saveAdv(JSON.stringify(advToSaveDB));
 
@@ -46,50 +36,20 @@ $(window).ready(function () {
     });
 });
 
-function prepareAdv(advertisement, advertisementToSend) {
-    advertisementToSend.date = advertisement.date;
-    alert(advertisementToSend.date);
-    var advToBase = JSON.stringify(advertisementToSend);
-    saveAdv(advToBase);
-}
-
-function saveAdv(data) {
-
-    // data.date = dataDate;
-    //
-    // if (data.date !== null) {
-    //     var dataToSend = JSON.stringify(data);
-    // }
-
-    fetch('http://localhost:9999/agency/advertisement/edit', {
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        method: 'POST',
-        body: data
-    })
-        .then(function (res) {
-            if (res.success) {
-                return res.json();
-            }
-        })
-        .then(function (res) {
-        })
-
-}
-
-
 function fillAdvFields(advertisement) {
 
-    var tag = '<p>Title<input type="text" id="title" value="' + advertisement.title + '"/></p>';
-    $(".inputs").append(tag);
+    // var tag = '<p>Title<input type="text" id="title" value="' + advertisement.title + '"/></p>';
+    // $(".inputs").append(tag);
+    //
+    // tag = '<p>Text<input type="text" id="text" value="' + advertisement.text + '"/></p>';
+    // $(".inputs").append(tag);
+    //
+    // tag = '<p>Price<input type="number" id="price" value="' + advertisement.price + '"/></p>';
+    // $(".inputs").append(tag);
 
-    tag = '<p>Text<input type="text" id="text" value="' + advertisement.text + '"/></p>';
-    $(".inputs").append(tag);
-
-    tag = '<p>Price<input type="number" id="price" value="' + advertisement.price + '"/></p>';
-    $(".inputs").append(tag);
+    $("#advTitle").val(advertisement.title);
+    $("#advText").val(advertisement.text);
+    $("#advPrice").val(advertisement.price);
 
     loadRurics(advertisement);
 
@@ -110,9 +70,22 @@ function loadRurics(advertisement) {
         });
     });
 }
-// function myFunction() {
-//     if($("#myCheck").checked === true) {
-//         advToSaveDB.closed = true;
-//         alert(advToSaveDB.closed);
-//     }
-// }
+
+function saveAdv(data) {
+
+    fetch('http://localhost:9999/agency/advertisement/save', {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        method: 'POST',
+        body: data
+    })
+        .then(function (res) {
+            if (res.success) {
+                return res.json();
+            }
+        })
+        .then(function (res) {
+        })
+}

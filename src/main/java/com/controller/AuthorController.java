@@ -19,9 +19,6 @@ public class AuthorController {
     @Autowired
     private AuthorService service;
 
-    @Autowired
-    private AuthorRepository authorRepository;
-
     @PostMapping("/save")
     public Author saveAuthor(@RequestBody Author author) {
 
@@ -30,27 +27,21 @@ public class AuthorController {
         return savedAuthor;
     }
 
-    @GetMapping(value = "/get/email/{email}")
-    public Author getAuthorId(@PathVariable(value = "email") String email) {
-
-        return authorRepository.findByEmail(email);
-    }
-
     @PostMapping(value = "/validate")
-    public ResponseEntity<Author> validateAuthor(@RequestBody ValidateWrapper authorLoginWrapper) {
+    public ResponseEntity<Author> validateAuthor(@RequestBody AuthorWrapper authorLoginWrapper) {
 
-        Optional<Author> author = Optional.ofNullable(authorRepository.findByEmail(authorLoginWrapper.getEmail()));
+        Optional<Author> author = Optional.ofNullable(service.getByEmail(authorLoginWrapper.getEmail()));
 
         final boolean[] response = {false};
 
-        Consumer<Author> validate = a ->{
+        Consumer<Author> validateAuthor = a ->{
 
             if (a.getPassword().equals(authorLoginWrapper.getPassword())) {
                 response[0] = true;
             }
         };
 
-        author.ifPresent(validate);
+        author.ifPresent(validateAuthor);
 
         return response[0] ? new ResponseEntity<Author>(author.get(), HttpStatus.OK) :
                 new ResponseEntity<Author>((Author) null, HttpStatus.NOT_FOUND);
@@ -69,7 +60,7 @@ public class AuthorController {
 
     @GetMapping(value = "/get/all")
     public List<Author> getAllAuthors() {
-        return authorRepository.findAll();
+        return service.getAll();
     }
 
 }

@@ -1,9 +1,8 @@
 package com.domain;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.serializer.AdvertisementDeserializer;
+import com.serializer.AdvertisementDeserializator;
 import com.serializer.AdvertisementSerializer;
 
 import javax.persistence.*;
@@ -12,6 +11,7 @@ import java.time.LocalDate;
 @Entity
 @SequenceGenerator(name = "advert_id_gen", sequenceName = "advertisement_id", initialValue = 1, allocationSize = 1)
 @JsonSerialize(using = AdvertisementSerializer.class)
+@JsonDeserialize(using = AdvertisementDeserializator.class)
 public class Advertisement {
 
     @Id
@@ -22,7 +22,6 @@ public class Advertisement {
 
     private String text;
 
-//    @JsonDeserialize(using = AdvertisementDeserializer.class)
     private LocalDate date;
 
     private double price;

@@ -10,11 +10,30 @@
     <img class="logo" src="img/logo1.png" alt="logo">
 </header>
 <body>
-    <div class="inputs"></div>
-    <select class="select"></select>
-    <input type="checkbox" id="myCheck" >Mark as closed
+<table class="inputs">
+    <tr>
+        <td class="ShowAdvHeading">Title</td>
+        <td ><input class="title" id="advTitle" type="text"></td>
+    </tr>
+    <tr>
+        <td class="ShowAdvHeading">Text</td>
+        <td ><textarea class="text" id="advText" rows="20" cols="50"></textarea></td>
+    </tr>
+    <tr>
+        <td class="ShowAdvHeading">Price</td>
+        <td ><input id="advPrice" type="number"></td>
+    </tr>
+</table>
+
+
+<select class="select" id="advRubr"></select>
+<p class="isClosed"><input type="checkbox" id="myCheck" >Mark as closed</p>
+
+
+<div class="editButtons">
     <button id="save">Save</button>
     <button id="home">Cancel</button>
+</div>
 
 
 <script src="js/EditAdvertisement.js"></script>

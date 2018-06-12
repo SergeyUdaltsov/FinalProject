@@ -1,8 +1,6 @@
 package com.controller;
 
 import com.domain.Advertisement;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.repository.AdvertisementRepository;
 import com.service.AdvertisementService;
 import org.springframework.beans.factory.annotation.Autowired;

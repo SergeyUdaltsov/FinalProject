@@ -73,6 +73,8 @@ public class ApplicationContext implements WebMvcConfigurer {
         return dataSource;
     }
 
+
+
     @Bean
     public JpaVendorAdapter jpaVendorAdapter() {
         HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
@@ -83,22 +85,22 @@ public class ApplicationContext implements WebMvcConfigurer {
         return adapter;
     }
 
-    @Bean
-    public JavaMailSenderImpl mailSender() {
-        JavaMailSenderImpl sender = new JavaMailSenderImpl();
-        sender.setHost("smtp.gmail.com");
-        sender.setPort(587);//465
-        sender.setUsername("Udalcov42@gmail.com");
-        sender.setPassword("t883774");
-
-
-        Properties properties = sender.getJavaMailProperties();
-        properties.put("mail.transport.protocol", "smtp");//g
-        properties.setProperty("mail.smpt.auth", "true");
-        properties.setProperty("mail.smpt.starttls.enable", "true");
-
-        return sender;
-    }
+//    @Bean
+//    public JavaMailSenderImpl mailSender() {
+//        JavaMailSenderImpl sender = new JavaMailSenderImpl();
+//        sender.setHost("smtp.gmail.com");
+//        sender.setPort(587);//465
+//        sender.setUsername("Udalcov42@gmail.com");
+//        sender.setPassword("t883774");
+//
+//
+//        Properties properties = sender.getJavaMailProperties();
+//        properties.put("mail.transport.protocol", "smtp");//g
+//        properties.setProperty("mail.smpt.auth", "true");
+//        properties.setProperty("mail.smpt.starttls.enable", "true");
+//
+//        return sender;
+//    }
 
     @Bean
     public ViewResolver viewResolver() {

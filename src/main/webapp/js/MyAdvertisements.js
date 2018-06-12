@@ -47,7 +47,7 @@ function showPageAdvertisements(pageNumber, authorId) {
         $.each(list, function () {
 
             var advTitle = '<p><a href="http://localhost:9999/ShowAdvertisement.html?id=' + this.id + '&specific">' +
-                this.title + '</a></p>';
+                this.title + '</a></p><hr>';
 
             $("#siteAdv").append(advTitle);
         })

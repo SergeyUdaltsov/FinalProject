@@ -211,9 +211,9 @@ td{
 #filter{
     margin-left: 10px;
     margin-bottom: 15px;
+    width: 150px;
 }
 #show{
-
     margin: 10px 40px;
 }
 .logOut{
@@ -222,7 +222,7 @@ td{
     width: 80px;
 }
 .authorAdv{
-    margin: 10px 1300px;
+    margin: 10px 1280px;
     position: absolute;
     width: 120px;
 }
@@ -239,6 +239,62 @@ td{
 }
 /*Конец site*/
 
+/*MyAdvertisements*/
+
+.greetingMyAdv{
+    text-align: center;
+}
+
+.myAdvs{
+    margin: 1% 10%;
+
+}
+
+.myAdvsButton{
+    margin-left: 10%;
+}
+/*MyAdvertisements*/
+/*EditAdvertisement*/
+.title{
+    width: 300px;
+}
+.text{
+    width: 300px;
+    height: 150px;
+    text-align: start;
+}
+
+.inputs{
+    margin-left: 10%;
+    margin-bottom: 5px;
+}
+.select{
+    margin: 1% 14%;
+    width: 300px;
+}
+.isClosed{
+    margin: 15px 14%;
+}
+.editButtons{
+    margin: 15px 14%;
+}
+
+/*EditAdvertisement*/
+/*Filtered advertisements*/
+#greeting{
+    margin-top: 10px;
+    text-align: center;
+}
+#siteAdv{
+    margin: 1% 10%;
+}
+#back{
+    margin: 1% 10%;
+    width: 80px;
+}
+/*Filtered advertisements*/
+
+/*footer*/
 footer{
     position: fixed;
     left: 0; bottom: 0;
@@ -253,4 +309,5 @@ footer{
 
 }
 
+/*footer*/
 

@@ -1,8 +1,8 @@
 package com.domain;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import javax.persistence.*;
+import javax.validation.Constraint;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,6 +14,7 @@ public class Rubric {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "rubric_id_gen")
     private int id;
 
+    @Column(unique = true)
     private String name;
 
     @OneToMany(cascade = {CascadeType.REMOVE, CascadeType.PERSIST}, orphanRemoval = true, mappedBy = "rubric")

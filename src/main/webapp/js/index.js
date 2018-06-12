@@ -45,8 +45,7 @@ function validateAuthor() {
     })
         .then(function (res) {
             if (res.status === 404) {
-                debugger;
-                alert('password is wrong')
+                alert('Password or email is wrong')
             }else {
                 return res.json();
 
@@ -58,8 +57,6 @@ function validateAuthor() {
                 var authorTostore = JSON.stringify(res);
                 localStorage.setItem("author", authorTostore);
                 $(location).attr('href', 'http://localhost:9999/Site.html?id=1');
-            } else {
-                alert("password or email is wrong")
             }
         })
 }

@@ -28,12 +28,12 @@ function saveRubric() {
     })
         .then(function (res) {
             // debugger
-            if (res.success) {
+            if (res.status === 200) {
                 return res.json();
             }
+            alert('The rubric must be unique');
         })
         .then(function (res) {
-            // debugger
         })
 
 }

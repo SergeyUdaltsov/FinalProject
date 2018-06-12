@@ -66,7 +66,7 @@ function buildPagination() {
         var pagingPlace = $("#firstPage");
 
         for (var i = 1; i < countOfPages + 1; i++){
-            var page = '<a href="http://localhost:9999/Site.html?id=' + i + '">' + i + '</a>';
+            var page = '<a href="http://localhost:9999/Site.html?id=' + i + '">' + '    ' + i + '    ' + '</a>';
             pagingPlace.append(page);
         }
 
@@ -85,7 +85,7 @@ function showPageAdvertisements(pageNumber, countOfAdv) {
         $.each(list, function () {
 
             var advTitle = '<p><a href="http://localhost:9999/ShowAdvertisement.html?id=' + this.id + '&common">' +
-                this.title + '</a></p>';
+                this.title + '</a></p><hr>';
 
             $("#siteAdv").append(advTitle);
         })
