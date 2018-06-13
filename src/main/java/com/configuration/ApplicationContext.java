@@ -1,6 +1,5 @@
 package com.configuration;
 
-//import com.domain.quartz.ComplexJob;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;

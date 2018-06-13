@@ -134,7 +134,7 @@ function validateEmail(callback) {
 function validateForm() {
 
     if (($("#firstName").val() === "") || ($("#password").val() === "")
-        || ($("#phone").val() === "") || (emailCorrect === false)) {
+        || ($("#phone").val() === "") || (!emailCorrect)) {
         alert('Fill empty lines or correct email');
         return false;
     }

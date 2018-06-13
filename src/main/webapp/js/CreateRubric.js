@@ -11,14 +11,16 @@ $(window).ready(function () {
         var rubricExist = false;
 
         for (var i = 0; i < rubrics.length; i++) {
-            if(rubrics[i] === rubricName) {
+            if(rubrics[i].toUpperCase() === rubricName.toUpperCase()) {
                 rubricExist = true;
             }
         }
 
+        alert(rubricName);
+
         newRubric.name = rubricName;
 
-        rubricExist ? alert('Such name already exists') : saveRubric()
+        (rubricExist || rubricName === '') ? alert('Such name already exists or you did not enter it.') : saveRubric()
 
     })
 

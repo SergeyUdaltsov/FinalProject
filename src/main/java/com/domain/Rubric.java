@@ -13,6 +13,7 @@ public class Rubric {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "rubric_id_gen")
     private int id;
 
+
     @Column(unique = true)
     private String name;
 
