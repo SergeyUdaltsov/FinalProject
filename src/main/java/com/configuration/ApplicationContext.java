@@ -1,13 +1,11 @@
 package com.configuration;
 
-import com.domain.quartz.ComplexJob;
-import org.quartz.Scheduler;
+//import com.domain.quartz.ComplexJob;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -25,9 +23,6 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Properties;
 
 @Configuration
 @ComponentScan(basePackages = "com")
@@ -74,7 +69,6 @@ public class ApplicationContext implements WebMvcConfigurer {
     }
 
 
-
     @Bean
     public JpaVendorAdapter jpaVendorAdapter() {
         HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
@@ -84,23 +78,6 @@ public class ApplicationContext implements WebMvcConfigurer {
         adapter.setGenerateDdl(true);
         return adapter;
     }
-
-//    @Bean
-//    public JavaMailSenderImpl mailSender() {
-//        JavaMailSenderImpl sender = new JavaMailSenderImpl();
-//        sender.setHost("smtp.gmail.com");
-//        sender.setPort(587);//465
-//        sender.setUsername("Udalcov42@gmail.com");
-//        sender.setPassword("t883774");
-//
-//
-//        Properties properties = sender.getJavaMailProperties();
-//        properties.put("mail.transport.protocol", "smtp");//g
-//        properties.setProperty("mail.smpt.auth", "true");
-//        properties.setProperty("mail.smpt.starttls.enable", "true");
-//
-//        return sender;
-//    }
 
     @Bean
     public ViewResolver viewResolver() {
@@ -113,11 +90,11 @@ public class ApplicationContext implements WebMvcConfigurer {
     }
 
     @Bean
-    public MethodInvokingJobDetailFactoryBean methodInvokingJobDetailFactory() {
+    public MethodInvokingJobDetailFactoryBean deleteClosedAdv() {
         MethodInvokingJobDetailFactoryBean obj = new MethodInvokingJobDetailFactoryBean();
 
-        obj.setTargetBeanName("myJob");
-        obj.setTargetMethod("run");
+        obj.setTargetBeanName("advertisementService");
+        obj.setTargetMethod("deleteIfClosed");
 
         return obj;
     }
@@ -126,48 +103,18 @@ public class ApplicationContext implements WebMvcConfigurer {
     public SimpleTriggerFactoryBean simpleTriggerFactory() {
         SimpleTriggerFactoryBean factoryBean = new SimpleTriggerFactoryBean();
 
-        factoryBean.setJobDetail(methodInvokingJobDetailFactory().getObject());
+        factoryBean.setJobDetail(deleteClosedAdv().getObject());
         factoryBean.setStartDelay(3000);
-        factoryBean.setRepeatInterval(3000);
+        factoryBean.setRepeatInterval(180000);
+
         return factoryBean;
-    }
-
-    @Bean
-    public JobDetailFactoryBean jobDetailFactory() {
-        JobDetailFactoryBean jobDetail = new JobDetailFactoryBean();
-        jobDetail.setJobClass(ComplexJob.class);
-
-        Map<String, Object> map = new HashMap<>();
-        map.put("name", "John");
-
-        jobDetail.setJobDataAsMap(map);
-
-        jobDetail.setGroup("mygroup");
-        jobDetail.setName("newJob");
-
-        return jobDetail;
-    }
-
-    @Bean
-    public CronTriggerFactoryBean cronTriggerFactory() {
-        CronTriggerFactoryBean cron = new CronTriggerFactoryBean();
-
-        cron.setJobDetail(jobDetailFactory().getObject());
-
-        cron.setStartDelay(3000);
-
-        cron.setName("MyCronTrigger");
-        cron.setGroup("mygroup");
-        cron.setCronExpression("0 0/1 * 1/1 * ? *");
-
-        return cron;
     }
 
     @Bean
     public SchedulerFactoryBean schedulerFactory() {
         SchedulerFactoryBean factoryBean = new SchedulerFactoryBean();
 
-        factoryBean.setTriggers(simpleTriggerFactory().getObject(), cronTriggerFactory().getObject());
+        factoryBean.setTriggers(simpleTriggerFactory().getObject());
 
         return factoryBean;
     }

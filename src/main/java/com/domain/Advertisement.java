@@ -26,7 +26,7 @@ public class Advertisement {
 
     private double price;
 
-    private boolean closed;
+    private boolean isClosed;
 
     @ManyToOne
     @JoinColumn(name = "author_adv_fk")
@@ -41,11 +41,11 @@ public class Advertisement {
     }
 
     public boolean isClosed() {
-        return closed;
+        return isClosed;
     }
 
     public void setClosed(boolean closed) {
-        this.closed = closed;
+        this.isClosed = closed;
     }
 
     public Rubric getRubric() {

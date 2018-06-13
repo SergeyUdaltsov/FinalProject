@@ -24,15 +24,15 @@ public class AuthorService {
         repository.deleteById(id);
     }
 
-    public Author get(int id) {
+    public Author getAuthorById(int id) {
         return repository.getAuthorById(id);
     }
 
-    public Author getByEmail(String email){
+    public Author getAuthorByEmail(String email){
         return repository.findByEmail(email);
     }
 
-    public List<Author> getAll() {
+    public List<Author> getAllAuthors() {
        return repository.findAll();
     }
 

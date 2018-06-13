@@ -3,13 +3,22 @@ var newRubric = new Object();
 $(window).ready(function () {
 
 
+    var rubrics = JSON.parse(localStorage.getItem('rubricNames'));
+
     $("#createRubric").click(function () {
 
         var rubricName = $("#name").val();
-        newRubric.name = rubricName;
-        saveRubric();
-        $(location).attr('href', 'http://localhost:9999/CreateAdvertisement.html');
+        var rubricExist = false;
 
+        for (var i = 0; i < rubrics.length; i++) {
+            if(rubrics[i] === rubricName) {
+                rubricExist = true;
+            }
+        }
+
+        newRubric.name = rubricName;
+
+        rubricExist ? alert('Such name already exists') : saveRubric()
 
     })
 
@@ -34,7 +43,8 @@ function saveRubric() {
             alert('The rubric must be unique');
         })
         .then(function (res) {
-        })
+        });
+    $(location).attr('href', 'http://localhost:9999/CreateAdvertisement.html');
 
 }
 

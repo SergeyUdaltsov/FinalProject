@@ -36,6 +36,7 @@ $(document).ready(function () {
 
 function loadRurics() {
     var select = $("#rubricName");
+    var rubrics = [];
 
     $.getJSON('http://localhost:9999/agency/rubric/get/all', function (result) {
 
@@ -43,7 +44,12 @@ function loadRurics() {
 
             var opt = $("<option value='" + this.id + "'></option>").text(this.name);
             select.append(opt);
+
+            rubrics.push(this.name);
         });
+
+        const val = JSON.stringify(rubrics);
+        localStorage.setItem('rubricNames', val);
     });
 }
 

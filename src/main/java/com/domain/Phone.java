@@ -10,7 +10,6 @@ public class Phone {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "phone_id_gen")
     private int id;
 
-//    @Column(unique = true)
     private String number;
 
     public Phone(String number) {

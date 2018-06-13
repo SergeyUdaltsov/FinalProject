@@ -1,7 +1,6 @@
 package com.controller;
 
 import com.domain.Author;
-import com.repository.AuthorRepository;
 import com.service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,7 +29,7 @@ public class AuthorController {
     @PostMapping(value = "/validate")
     public ResponseEntity<Author> validateAuthor(@RequestBody AuthorWrapper authorLoginWrapper) {
 
-        Optional<Author> author = Optional.ofNullable(service.getByEmail(authorLoginWrapper.getEmail()));
+        Optional<Author> author = Optional.ofNullable(service.getAuthorByEmail(authorLoginWrapper.getEmail()));
 
         final boolean[] response = {false};
 
@@ -55,12 +54,12 @@ public class AuthorController {
 
     @GetMapping(value = "/get/{id}")
     public Author get(@PathVariable int id) {
-        return service.get(id);
+        return service.getAuthorById(id);
     }
 
     @GetMapping(value = "/get/all")
     public List<Author> getAllAuthors() {
-        return service.getAll();
+        return service.getAllAuthors();
     }
 
 }

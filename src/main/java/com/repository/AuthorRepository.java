@@ -12,6 +12,7 @@ import java.util.List;
 
 @Transactional
 public interface AuthorRepository extends JpaRepository<Author, Integer> {
+
     @Query("SELECT a FROM Author a LEFT JOIN FETCH a.phones LEFT JOIN FETCH " +
             "a.advertisements WHERE a.id = :a_id")
     Author getAuthorById(@Param(value = "a_id")int id);

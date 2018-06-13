@@ -2,7 +2,6 @@ package com.domain;
 
 
 import javax.persistence.*;
-import javax.validation.Constraint;
 import java.util.HashSet;
 import java.util.Set;
 

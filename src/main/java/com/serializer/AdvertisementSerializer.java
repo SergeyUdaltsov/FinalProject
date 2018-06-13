@@ -32,8 +32,6 @@ public class AdvertisementSerializer extends StdSerializer<Advertisement> {
 
         Rubric rubric = advertisement.getRubric();
 
-//        LocalDate date = advertisement.getDate();
-
         gen.writeStartObject();
 
         gen.writeObjectField("id", advertisement.getId());

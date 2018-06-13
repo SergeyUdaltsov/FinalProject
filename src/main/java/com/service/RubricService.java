@@ -13,7 +13,6 @@ public class RubricService {
     @Autowired
     private RubricRepository repository;
 
-//
     public void save(Rubric rubric) {
         repository.save(rubric);
     }
@@ -26,8 +25,5 @@ public class RubricService {
         return repository.findAll();
     }
 
-    public Rubric getByName(String name) {
-        return repository.findByName(name);
-    }
 
 }

@@ -28,7 +28,7 @@ function buildPagination(authorId) {
         var pagingPlace = $("#firstPage");
 
         for (var i = 1; i < countOfPages + 1; i++) {
-            var page = '<a href="http://localhost:9999/MyAdvertisements.html?id=' + i + '">' + i + '</a>';
+            var page = '<a href="http://localhost:9999/MyAdvertisements.html?id=' + i + '">' + '  ' +  i + '  ' + '</a>';
             pagingPlace.append(page);
         }
 

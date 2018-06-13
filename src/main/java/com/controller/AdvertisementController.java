@@ -28,30 +28,11 @@ public class AdvertisementController {
         advertisementService.save(advertisement);
     }
 
-    @PostMapping(value = "/edit")
-    public void edit(@RequestBody AdvWrapper wrapper) {
-
-        Advertisement advertisement = new Advertisement();
-
-        advertisement.setId(wrapper.getId());
-        advertisement.setTitle(wrapper.getTitle());
-        advertisement.setText(wrapper.getText());
-        advertisement.setPrice(wrapper.getPrice());
-        advertisement.setClosed(wrapper.isClosed());
-        advertisement.setRubric(wrapper.getRubric());
-        advertisement.setAuthor(wrapper.getAuthor());
-
-        LocalDate date = LocalDate.parse(wrapper.getDate());
-        advertisement.setDate(date);
-
-        advertisementService.save(advertisement);
-    }
 
     @GetMapping(value = "/get/{id}")
     public Advertisement get(@PathVariable int id) {
         return advertisementService.get(id);
     }
-
 
 
     @GetMapping(value = "/get/all")
@@ -68,7 +49,8 @@ public class AdvertisementController {
     }
 
     @GetMapping(value = "/get/page/{page}/{count}")
-    public List<Advertisement> getPageAdvs(@PathVariable(name = "page")int page, @PathVariable(name = "count")int count) {
+    public List<Advertisement> getPageAdvs(@PathVariable(name = "page") int page, @PathVariable(name = "count") int count) {
+
         return advertisementService.getAdvPage(page, count);
     }
 
@@ -89,10 +71,6 @@ public class AdvertisementController {
 
         return advertisementService.showFilteredAdv(rubricId, priceFrom, priceTo);
     }
-
-
-
-
 
 }
 

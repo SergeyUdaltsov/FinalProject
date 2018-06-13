@@ -12,7 +12,6 @@ public class Author {
     @GeneratedValue
     private int id;
 
-//    @Pattern(regexp = ".+")
     @Column(length = 20)
     private String firstName;
 

@@ -38,15 +38,6 @@ $(window).ready(function () {
 
 function fillAdvFields(advertisement) {
 
-    // var tag = '<p>Title<input type="text" id="title" value="' + advertisement.title + '"/></p>';
-    // $(".inputs").append(tag);
-    //
-    // tag = '<p>Text<input type="text" id="text" value="' + advertisement.text + '"/></p>';
-    // $(".inputs").append(tag);
-    //
-    // tag = '<p>Price<input type="number" id="price" value="' + advertisement.price + '"/></p>';
-    // $(".inputs").append(tag);
-
     $("#advTitle").val(advertisement.title);
     $("#advText").val(advertisement.text);
     $("#advPrice").val(advertisement.price);
