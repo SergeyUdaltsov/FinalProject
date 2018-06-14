@@ -1,0 +1,39 @@
+This application is an analog of existing advertisement applications.
+Application allows following actions:
+
+ * create new advertisement
+ * create new rubric
+ * register new user(advertisement's author)
+ * store all the necessary author's information
+ * view all the advertisements
+ * view advertisements of specified author
+ * view filtered list of advertisements(by rubric and price range)
+ * edit advertisement which belongs to registered author
+ * delete advertisement
+
+ This application consists of two parts: server side and browser side.
+
+ Server side:
+
+ Java JDK 1.8.0_152
+ application/web server - TomCat 9.0.81
+ build tool - gradle 4.5.1
+ version control - Git
+ data base - MySQL 5.1.40
+ JPA - Hibernate 5.2.13
+ JPA Framework - SpringData 5.0.0
+ Scheduler - Quartz 2.3.0
+
+ Browser side:
+
+ HTML 5
+ JavaScript - ECMAScript 5.1
+ Frameworks - JQuery 3.3.1
+ Style - CSS
+ Restlet client
+
+ Most Data validation made on the client side. But some constraints added to server too.
+ Quartz scheduler checks data base every 3 minutes. If any advertisement marked as closed it will delete it.
+ DAO wasn't used.
+
+
