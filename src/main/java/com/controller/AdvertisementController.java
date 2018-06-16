@@ -72,6 +72,7 @@ public class AdvertisementController {
         return advertisementService.showFilteredAdv(rubricId, priceFrom, priceTo);
     }
 
+
 }
 
 

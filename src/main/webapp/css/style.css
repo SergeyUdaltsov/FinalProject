@@ -67,6 +67,8 @@ button {
 
 /*Начало createAdv*/
 .createAdv{
+    display: flex;
+    flex-direction: column;
     color: #555555;
     font-family: MS Sans Serif;
     font-size: 18px;
@@ -76,26 +78,57 @@ button {
     position: absolute;
     text-align: left;
 }
+.rubric{
+    flex-direction: row
+}
 
 #rubricName{
     height: 25px;
-    width: 253px;
+    width: 265px;
+}
+
+.titleElements{
+    width: 250px;
+    size: 300px;
+    margin-right: 0;
 }
 
 #titleName{
-    height: auto;
-    width: 250px;
+    width: 263px;
+}
+.advertisement-text{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 300px;
 }
 
-#text{
+.textElements{
     height: auto;
-    width: 250px;
+    size: 250px;
 }
 
-#price{
-    height: 18px;
-    width: 250px;
+.price{
+
 }
+.photo{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.photoElementsInput{
+    display: none;
+}
+.advButtons{
+    margin-top: 15px;
+    margin-left: 110px;
+}
+#createAdvButton{
+    margin-bottom: 0;
+    width: 80px;
+}
+#cancelAdvButton{
+    width: 80px;
+}
+
 
 .back{
 
@@ -152,9 +185,6 @@ td{
 #closed{
     text-align: center;
     color: red;
-}
-.advButtons{
-    margin-left: 10%;
 }
 
 #home{

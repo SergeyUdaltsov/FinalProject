@@ -16,8 +16,6 @@ $(window).ready(function () {
             }
         }
 
-        alert(rubricName);
-
         newRubric.name = rubricName;
 
         (rubricExist || rubricName === '') ? alert('Such name already exists or you did not enter it.') : saveRubric()
@@ -38,13 +36,13 @@ function saveRubric() {
         body: JSON.stringify(newRubric)
     })
         .then(function (res) {
-            // debugger
             if (res.status === 200) {
                 return res.json();
             }
-            alert('The rubric must be unique');
+            // alert('The rubric must be unique');
         })
         .then(function (res) {
+
         });
     $(location).attr('href', 'http://localhost:9999/CreateAdvertisement.html');
 

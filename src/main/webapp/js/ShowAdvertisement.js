@@ -40,7 +40,7 @@ function showAdvertisementInfo(url) {
         $("#price").append(res.price);
         $("#citiesList").append(res.authorCity);
 
-       if(res.closed){$("#closed").text('Advertisement was marked as closed and will be deleted.');}
+       if(res.isClosed){$("#closed").text('Advertisement was marked as closed and will be deleted.');}
 
         $("#date").append(res.date);
 

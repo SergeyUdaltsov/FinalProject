@@ -12,7 +12,7 @@ $(document).ready(function () {
         $(location).attr('href', 'http://localhost:9999/CreateRubric.html');
     });
 
-    $("#createAdv").click(function () {
+    $("#createAdvButton").click(function () {
         author.id = authorFromStorage.id;
         rubric.id = $("#rubricName").val();
         newAdv.rubric = rubric;
@@ -20,14 +20,23 @@ $(document).ready(function () {
         newAdv.title = $("#titleName").val();
         newAdv.text = $("#text").val();
         newAdv.price = $("#price").val();
-        newAdv.closed = false;
+        newAdv.isClosed = false;
 
         saveAdv(newAdv);
         $(location).attr('href', 'http://localhost:9999/Site.html?id=1');
 
     });
 
-    $("#cancel").click(function () {
+
+    // document.querySelector('#photoButton').addEventListener('click', function () {
+    //     document.querySelector('#file').click();
+    // });
+    //
+    // var file = document.querySelector('#file').files[0];
+
+
+
+    $("#cancelAdvButton").click(function () {
 
         window.history.back();
 
@@ -72,4 +81,7 @@ function saveAdv(advertisement) {
         })
 
 }
+
+
+
 

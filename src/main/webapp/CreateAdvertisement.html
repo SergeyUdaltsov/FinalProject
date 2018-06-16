@@ -4,32 +4,58 @@
     <meta charset="UTF-8">
     <title>Create new advertisement</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="js/CreateAdvertisement.js"></script>
+
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <header>
-	<img class="logo" src="img/logo1.png" alt="logo">
+    <img class="logo" src="img/logo1.png" alt="logo">
 </header>
 
 <body>
-	<div class="createAdv">
-		<h4>Rubric</h4>
-		<select id="rubricName" size="1"></select>
-		<button id="createNewRubric">New rubric</button>
-		<h4>Title</h4>
-		<input type="text" id="titleName">
-		<h4>Text</h4>
-		<textarea id="text" rows="5" cols="50"></textarea>
-		<h4>Price</h4>
-		<input type="number" id="price"/>
-		<button id="createAdv">Create</button>
-        <button id="cancel">Cancel</button>
-
+<div class="createAdv">
+    <div class="rubric">
+        <div class="rubricText">
+            <h4>Rubric</h4>
+        </div>
+        <div class="rubrcElements">
+            <select id="rubricName" size="1"></select>
+            <button id="createNewRubric">New rubric</button>
+        </div>
+    </div>
+    <div class="title">
+        <div class="titleText">
+            <h4>Title</h4>
+        </div>
+        <div class="titleElements">
+            <input type="text" id="titleName">
+        </div>
+    </div>
+    <div class="advertisement-text">
+        <div class="textText">
+            <h4>Text</h4>
+        </div>
+        <div class="textElements">
+            <textarea id="text" rows="5" cols="35"></textarea>
+        </div>
+    </div>
+    <div class="price">
+        <div class="priceText">
+            <h4>Price</h4>
+        </div>
+        <div class="priceElemets">
+            <input type="number" id="price"/>
+        </div>
+    </div>
+    <div class="advButtons">
+        <button id="createAdvButton">Create</button>
+        <button id="cancelAdvButton">Cancel</button>
     </div>
 
+</div>
+<script src="js/CreateAdvertisement.js"></script>
 </body>
 <footer>
-	<p class="copiright"> &#169; Copyright Sergey Udaltsov  email: sergii.udaltsov@gmail.com, skype: afranij31</p>
+    <p class="copiright"> &#169; Copyright Sergey Udaltsov email: sergii.udaltsov@gmail.com, skype: afranij31</p>
 </footer>
 </html>

@@ -44,7 +44,7 @@ public class AdvertisementDeserializator extends StdDeserializer<Advertisement> 
             advertisement.setId(temp.asInt());
         }
 
-        advertisement.setClosed(node.get("closed").asBoolean());
+        advertisement.setClosed(node.get("isClosed").asBoolean());
         advertisement.setTitle(node.get("title").asText());
         advertisement.setText(node.get("text").asText());
         advertisement.setPrice(node.get("price").asDouble());

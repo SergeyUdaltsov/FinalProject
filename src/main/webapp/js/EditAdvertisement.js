@@ -21,7 +21,7 @@ $(window).ready(function () {
 
         var checkClosed = document.getElementById('myCheck');
 
-        checkClosed.checked ? advToSaveDB.closed = true : advToSaveDB.closed = false;
+        checkClosed.checked ? advToSaveDB.isClosed = true : advToSaveDB.isClosed = false;
 
         advToSaveDB.date = advertisementFromStorage.date;
 

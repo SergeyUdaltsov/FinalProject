@@ -7,6 +7,9 @@ import com.serializer.AdvertisementSerializer;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @SequenceGenerator(name = "advert_id_gen", sequenceName = "advertisement_id", initialValue = 1, allocationSize = 1)
@@ -28,6 +31,7 @@ public class Advertisement {
 
     private boolean isClosed;
 
+
     @ManyToOne
     @JoinColumn(name = "author_adv_fk")
     private Author author;
@@ -39,6 +43,7 @@ public class Advertisement {
 
     public Advertisement() {
     }
+
 
     public boolean isClosed() {
         return isClosed;
